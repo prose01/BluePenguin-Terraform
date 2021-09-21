@@ -24,11 +24,11 @@ variables:
   ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
     stageName: "prod"
   
-  blob_storage: "bluePenguin-terraform-state-${{ variables.stageName }}"
+  blob_storage: "bluepenguin-terraform-state-${{ variables.stageName }}"
   state_file: "tf-statefile.state"
 
 steps:
-  # - script: echo ${{ variables.stageName }}
+  - script: echo ${{ variables.subscription_id }}
   - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
     displayName: 'Install Terraform 0.13.5'
     inputs:
