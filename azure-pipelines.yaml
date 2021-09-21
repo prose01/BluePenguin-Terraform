@@ -28,7 +28,7 @@ variables:
   state_file: "tf-statefile.state"
 
 steps:
-  - script: echo ${{ variables.subscription_id }}
+  # - script: echo ${{ variables.subscription_id }}
   - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
     displayName: 'Install Terraform 0.13.5'
     inputs:
@@ -50,9 +50,9 @@ steps:
     workingDirectory: $(System.DefaultWorkingDirectory)/BluePenguin-Terraform
   
   # Delete everything by uncommenting the following section
-  - script: terraform plan -destroy -input=false -out="tfplan" -var="client_id=$(devops-service-principal-client-id)" -var="client_secret=$(devops-service-principal-secret)" -var="tenant_id=$(devops-service-principal-tenant-id)" -var="subscription_id=${{variables.subscription_id}}" -var="sourceBranchName=${{variables.stageName}}"
-    displayName: 'Terraform Plan -destroy '
-    workingDirectory: $(System.DefaultWorkingDirectory)/BluePenguin-Terraform
+  # - script: terraform plan -destroy -input=false -out="tfplan" -var="client_id=$(devops-service-principal-client-id)" -var="client_secret=$(devops-service-principal-secret)" -var="tenant_id=$(devops-service-principal-tenant-id)" -var="subscription_id=${{variables.subscription_id}}" -var="sourceBranchName=${{variables.stageName}}"
+  #   displayName: 'Terraform Plan -destroy '
+  #   workingDirectory: $(System.DefaultWorkingDirectory)/BluePenguin-Terraform
 
   - task: ArchiveFiles@2
     displayName: 'Archive Terraform Plan Files'

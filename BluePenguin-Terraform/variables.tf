@@ -45,7 +45,3 @@ variable "sourceBranchName" {
   description = "Build Source Branch Name"
   default     = "dev"
 }
-
-variable "allowedhosts" {
-  description = "Used for host filtering to bind your app to specific hostnames. The value is a semicolon-delimited list of host names without port numbers."
-}
