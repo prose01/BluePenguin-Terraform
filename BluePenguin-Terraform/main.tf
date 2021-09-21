@@ -61,9 +61,9 @@ resource "azurerm_app_service" "bluePenguin" {
     }
 
     app_settings = {
-        "avalonUrl" = "https://avalon-freetrail.azurewebsites.net/"
-        "artemisUrl" = "https://artemis-freetrail.azurewebsites.net/"
-        "junoUrl" = "https://juno-freetrail.azurewebsites.net/"
+        "avalonUrl" = "https://avalon-dev.azurewebsites.net/"
+        "artemisUrl" = "https://artemis-87-dev.azurewebsites.net/"
+        "junoUrl" = "https://juno-dev.azurewebsites.net/"
         "maxTags" = "10"
         "maxPhotos" = "5"
         "fileSizeLimit" = "2097152"
@@ -113,9 +113,9 @@ resource "azurerm_app_service_slot" "bluePenguin-slot" {
     }
 
     app_settings = {
-        "avalonUrl" = "https://avalon-freetrail.azurewebsites.net/"
-        "artemisUrl" = "https://artemis-freetrail.azurewebsites.net/"
-        "junoUrl" = "https://juno-freetrail.azurewebsites.net/"
+        "avalonUrl" = "https://avalon-dev.azurewebsites.net/"
+        "artemisUrl" = "https://artemis-87-dev.azurewebsites.net/"
+        "junoUrl" = "https://juno-dev.azurewebsites.net/"
         "maxTags" = "10"
         "maxPhotos" = "5"
         "fileSizeLimit" = "2097152"
