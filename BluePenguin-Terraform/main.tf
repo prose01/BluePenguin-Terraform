@@ -52,6 +52,7 @@ resource "azurerm_app_service" "bluePenguin" {
 
     site_config {
         linux_fx_version = "NODE|14-lts"
+        app_command_line = "pm2 serve /home/site/wwwroot --no-daemon --spa"
         always_on = "true"
         ftps_state = "FtpsOnly"
         http2_enabled = "true"
@@ -103,6 +104,7 @@ resource "azurerm_app_service_slot" "bluePenguin-slot" {
 
     site_config {
         linux_fx_version = "NODE|14-lts"
+        app_command_line = "pm2 serve /home/site/wwwroot --no-daemon --spa"
         always_on = "true"
         ftps_state = "FtpsOnly"
         http2_enabled = "true"

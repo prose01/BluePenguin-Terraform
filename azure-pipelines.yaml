@@ -69,4 +69,4 @@ steps:
 
   # - script: terraform apply out.plan
   #   displayName: 'Terraform Apply'
-  #   workingDirectory: $(System.DefaultWorkingDirectory)/Avalon-Terraform
+  #   workingDirectory: $(System.DefaultWorkingDirectory)/BluePenguin-Terraform
