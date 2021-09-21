@@ -26,11 +26,6 @@ variable "resource_group" {
   default     = "myterraformgroup"
 }
 
-# variable "blob_storage" {
-#   description = "Blob storage Conatainer name."
-#   default     = "terraform-state-default"
-# }
-
 variable "location" {
   description = "The region where the Azure Resource is created."
   default     = "West Europe"
@@ -46,15 +41,6 @@ variable "storage_replication_type" {
   default     = "GRS"
 }
 
-# variable "administrator_login" {
-#   description = "Administrator user name"
-#   default     = "mradministrator"
-# }
-
-# variable "administrator_login_password" {
-#   description = "Administrator password"
-# }
-
 variable "sourceBranchName" {
   description = "Build Source Branch Name"
   default     = "dev"
@@ -62,20 +48,4 @@ variable "sourceBranchName" {
 
 variable "allowedhosts" {
   description = "Used for host filtering to bind your app to specific hostnames. The value is a semicolon-delimited list of host names without port numbers."
-}
-
-variable "auth0domain" {
-  description = "Auth0 Domain Address"
-}
-
-variable "auth0apiIdentifier" {
-  description = "Auth0 ApiIdentifier Address"
-}
-
-variable "auth0claimsnameidentifier" {
-  description = "Auth0 Claims nameidentifier Address"
-}
-
-variable "auth0tokenaddress" {
-  description = "Auth0 Token Address"
 }

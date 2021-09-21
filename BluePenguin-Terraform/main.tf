@@ -51,10 +51,7 @@ resource "azurerm_app_service" "bluePenguin" {
     app_service_plan_id = azurerm_app_service_plan.bluePenguin-plan.id
 
     site_config {
-        dotnet_framework_version = "v5.0"
-        linux_fx_version = "v5.0"
-        # remote_debugging_enabled = true
-        # remote_debugging_version = "VS2019"
+        linux_fx_version = "NODE|14-lts"
         always_on = "true"
         ftps_state = "FtpsOnly"
         http2_enabled = "true"
@@ -63,21 +60,18 @@ resource "azurerm_app_service" "bluePenguin" {
     }
 
     app_settings = {
-        "AllowedHosts" = "${var.allowedhosts}"
-        "Mongo_Database" = "Avalon"
-        "Auth0_Domain" = "${var.auth0domain}"
-        "Auth0_ApiIdentifier" = "${var.auth0apiIdentifier}"
-        "Auth0_Claims_nameidentifier" = "${var.auth0claimsnameidentifier}"
-        "Auth0_TokenAddress" = "${var.auth0tokenaddress}"
-        "MaxIsBookmarked" = "10"
-        "MaxVisited" = "10"
+        "avalonUrl" = "https://avalon-freetrail.azurewebsites.net/"
+        "artemisUrl" = "https://artemis-freetrail.azurewebsites.net/"
+        "junoUrl" = "https://juno-freetrail.azurewebsites.net/"
+        "maxTags" = "10"
+        "maxPhotos" = "5"
+        "fileSizeLimit" = "2097152"
+        "imageMaxWidth" = "1080"
+        "imageMaxHeight" = "1350"
+        "defaultAge" = "16"
+        "WEBSITE_NODE_DEFAULT_VERSION" = "~14"
+        # XDT_MicrosoftApplicationInsights_NodeJS         = "1"
     }
-
-    # connection_string {
-    #     name  = "Database"
-    #     type  = "SQLServer"
-    #     value = "Server=tcp:demosqlserver.database.windows.net,1433;Initial Catalog=demosqldatabase;Persist Security Info=False;User ID=${var.administrator_login};Password=${var.administrator_login_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-    # }
 
     https_only = "true"
 
@@ -108,9 +102,7 @@ resource "azurerm_app_service_slot" "bluePenguin-slot" {
     app_service_name    = azurerm_app_service.bluePenguin.name
 
     site_config {
-        dotnet_framework_version = "v5.0"
-        # remote_debugging_enabled = true
-        # remote_debugging_version = "VS2019"
+        linux_fx_version = "NODE|14-lts"
         always_on = "true"
         ftps_state = "FtpsOnly"
         http2_enabled = "true"
@@ -119,21 +111,18 @@ resource "azurerm_app_service_slot" "bluePenguin-slot" {
     }
 
     app_settings = {
-        "AllowedHosts" = "${var.allowedhosts}"
-        "Mongo_Database" = "Avalon"
-        "Auth0_Domain" = "${var.auth0domain}"
-        "Auth0_ApiIdentifier" = "${var.auth0apiIdentifier}"
-        "Auth0_Claims_nameidentifier" = "${var.auth0claimsnameidentifier}"
-        "Auth0_TokenAddress" = "${var.auth0tokenaddress}"
-        "MaxIsBookmarked" = "10"
-        "MaxVisited" = "10"
+        "avalonUrl" = "https://avalon-freetrail.azurewebsites.net/"
+        "artemisUrl" = "https://artemis-freetrail.azurewebsites.net/"
+        "junoUrl" = "https://juno-freetrail.azurewebsites.net/"
+        "maxTags" = "10"
+        "maxPhotos" = "5"
+        "fileSizeLimit" = "2097152"
+        "imageMaxWidth" = "1080"
+        "imageMaxHeight" = "1350"
+        "defaultAge" = "16"
+        "WEBSITE_NODE_DEFAULT_VERSION" = "~14"
+        # XDT_MicrosoftApplicationInsights_NodeJS         = "1"
     }
-
-    # connection_string {
-    #     name  = "Mongo_ConnectionString"
-    #     type  = "SQLServer"
-    #     value = "Server=tcp:demosqlserver.database.windows.net,1433;Initial Catalog=demosqldatabase;Persist Security Info=False;User ID=${var.administrator_login};Password=${var.administrator_login_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-    # }
 
     https_only = "true"
 
