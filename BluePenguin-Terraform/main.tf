@@ -35,7 +35,7 @@ resource "azurerm_app_service_plan" "bluePenguin-plan" {
     
     sku {
         tier = "Standard"
-        size = "S1"
+        size = "P1V2"
     }
 
     tags = {
